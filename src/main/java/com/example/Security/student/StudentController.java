@@ -1,10 +1,11 @@
 package com.example.Security.student;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
+
+
 
 @RestController
 @RequestMapping("api/v1/students")
@@ -17,7 +18,6 @@ public class StudentController {
     );
 
 
-
     @GetMapping("/{studentId}")
     public Student getStudent(@PathVariable ("studentId") Integer studentId){
         return STUDENTS.stream().filter(student -> studentId.equals(student.getStudentId()))
@@ -25,5 +25,7 @@ public class StudentController {
                 .orElseThrow(()-> new IllegalStateException("Student"+studentId+"does not exists"));
 
     }
+
+
 
 }
